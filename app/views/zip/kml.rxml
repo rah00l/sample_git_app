@@ -1,0 +1,22 @@
+xml.kml("xmlns" => KML_NS) do
+  xml.tag! "Document" do
+
+    xml.tag! "Style", :id => "myStyle" do
+      xml.tag! "PolyStyle" do
+
+        xml.color "ffff0000" #format is aabbggrr
+        xml.outline 0
+      end
+
+    end
+    xml.tag! "Placemark" do
+      xml.description "Zipcode Tabulation Area : #{@name}"
+
+      xml.name @name
+      xml.styleUrl "#myStyle"
+      xml << @polygon.as_kml(:altitude => 2000, :altitude_mode => :relativeToGround)
+
+    end
+  end
+end
+

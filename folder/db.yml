@@ -1,0 +1,6 @@
+adapter: mysql
+database: zipcode_development
+username: root
+password: 
+host: localhost
+

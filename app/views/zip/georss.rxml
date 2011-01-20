@@ -1,0 +1,18 @@
+xml.rss(:version => "2.0", "xmlns:georss" => GEORSS_NS) do
+
+  xml.channel do
+    xml.title ‘Alabama Zipcode‘
+    xml.link(url_for(:action => ‘index‘,:only_path => false))
+
+    xml.description ‘Alabama Zipcode tutorial‘
+    xml << @envelope.as_georss
+    xml.item do
+
+      xml.title @name
+      xml.description "Zipcode Tabulation Area : #{@name}"
+      xml << @polygon.as_georss
+
+    end
+  end
+end
+
